@@ -3,7 +3,7 @@ package cards;
 import character.Hero;
 
 public class EffectSubBlood extends Effect {
-	int id = 3;
+	int id = 1;
 	
 	int blood = 1;
 	
