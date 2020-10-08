@@ -15,13 +15,6 @@ public abstract class Hero {
 	
 	ArrayList<Card> cards = new ArrayList<Card>();
 	
-	public Hero(String name, String six, int bloods) {
-		super();
-		this.name = name;
-		this.six = six;
-		this.bloods = bloods;
-	}
-	
 	public boolean isAlive() {
 		return this.bloods > 0;
 	}
@@ -68,6 +61,7 @@ public abstract class Hero {
 			this.cards.add(card);
 		}
 	}
+	
 	
 	public Card getCardRandom() {
 		int a =(int)(1+Math.random()*(this.cards.size()-1+1));
