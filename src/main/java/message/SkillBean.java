@@ -3,11 +3,11 @@ package message;
 public class SkillBean {
     private String name;
 
-    private int id = 0;
+    private int id;
 
-    private int effect = 0;
+    private int effect;
 
-    private int[] answerIdList = {};
+    private int[] answerIdList;
 
     public String getName() {
         return name;

@@ -67,10 +67,11 @@ public class HeroBean {
             cardBean.setColor(card.getColor());
             cardBean.setNumber(card.number);
 
+            skillBean.setName(card.getSkill().getName());
+            System.out.println(skillBean.getName());
             skillBean.setAnswerIdList(card.getSkill().getAnswerIdList());
-            skillBean.setEffect(card.getSkill().effect);
-            skillBean.setId(card.getSkill().id);
-            skillBean.setName(card.getSkill().name);
+            skillBean.setEffect(card.getSkill().getEffect());
+            skillBean.setId(card.getSkill().getId());
             cardBean.setSkillBean(skillBean);
             heroBean.cardBeans.add(cardBean);
         });

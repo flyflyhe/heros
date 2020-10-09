@@ -1,8 +1,6 @@
 package cards;
 
 
-import com.google.gson.annotations.SerializedName;
-
 public class Card {
 	public static String[] colorMap = {"黑", "红", "梅", "方"};
 

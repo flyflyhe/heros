@@ -3,11 +3,10 @@ package cards;
 import character.Hero;
 
 public class SkillDodge extends Skill {
-	
-	public String name = "闪";
 
-	public int id = 2;
-
-	public int[] answerIdList = {1};
-
+	public SkillDodge() {
+		setId(2);
+		setName("闪");
+		setAnswerIdList(new int[]{1});
+	}
 }

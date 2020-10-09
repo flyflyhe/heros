@@ -2,10 +2,10 @@ package cards;
 
 
 public class SkillOutOfOnePocket extends Skill {
-	public String name = "探囊取物";
-
-	public int id = 5;
-
-	public int effect = 3;
-
+	public SkillOutOfOnePocket() {
+		setId(5);
+		setName("探囊取物");
+		setEffect(3);
+		setAnswerIdList(new int[]{});
+	}
 }

@@ -1,11 +1,11 @@
 package cards;
 
 public class CardConfig {
-	int color;
+	private int color;
 
-	int number;
+	private int number;
 
-	Skill skill;
+	private Skill skill;
 
 	public CardConfig(int color, int number, Skill skill) {
 		super();
