@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import character.Hero;
 
 public class EffectGetCard extends Effect {
-	int id = 3;
-	
 	ArrayList<Card> cards = new ArrayList<>();
 	
 	@Override
@@ -20,5 +18,9 @@ public class EffectGetCard extends Effect {
 	
 	public ArrayList<Card> getCards() {
 		return this.cards;
+	}
+
+	public EffectGetCard() {
+		setId(3);
 	}
 }

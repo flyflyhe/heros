@@ -3,10 +3,7 @@ package cards;
 import character.Hero;
 
 public class EffectSubCard extends Effect {
-	int id = 4;
-	
-	int cardNum = 1;
-	
+
 	@Override
 	public void handle(Hero... heros) {
 		// TODO Auto-generated method stub
@@ -14,6 +11,10 @@ public class EffectSubCard extends Effect {
 			hero.getCardRandom();
 		}
 
+	}
+
+	public EffectSubCard() {
+		setId(4);
 	}
 
 }
