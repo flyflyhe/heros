@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="id">
+        <button id="open" data-id="id">open</button>
+        <button id="close">close</button>
+    </div>
+    <div>
+        <input type="text" id="id2">
+        <button id="open2" data-id="id2">open</button>
+        <button id="close2">close</button>
+    </div>
+    <div>
+        <input type="text" id="id3" >
+        <button id="open3" data-id="id3">open</button>
+        <button id="close3">close</button>
+    </div>
+    <div>
+        <input type="text" id="id4">
+        <button id="open4" data-id="id4">open</button>
+        <button id="close4">close</button>
+    </div>
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+<script>
+    $("#open,#open2,#open3,#open4").on('click', function (e) {
+
+        let ws = new WebSocket("ws://127.0.0.1:8887?id="+$("#"+$(this).data('id')).val())
+
+        console.log(ws)
+
+        ws.onopen = function (event) {
+            console.log('open', event)
+        }
+
+        ws.onmessage = function (event) {
+            console.log('msg', event)
+        }
+
+        ws.onclose = function (event) {
+            console.log('close', event)
+        }
+    })
+</script>
+</html>

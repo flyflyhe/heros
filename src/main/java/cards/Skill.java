@@ -3,19 +3,22 @@ package cards;
 import character.Hero;
 
 public abstract class Skill {
-	String name;
+	public String name;
 	
-	int id = 0;
+	public int id = 0;
 	
-	int effect = 0;
+	public int effect = 0;
 	
-	int[] answerIdList = {};
+	public int[] answerIdList = {};
 	
 	public Skill() {
 	    super();
 	}
-	
-	
+
+	public int getId() {
+		return id;
+	}
+
 	public String getName() {
 		return name;
 	}

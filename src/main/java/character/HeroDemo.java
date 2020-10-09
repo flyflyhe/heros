@@ -1,10 +1,10 @@
 package character;
 
 public class HeroDemo extends Hero {
-	public HeroDemo(String name, String six, int bloods) {
+	public HeroDemo(String name, String sex, int bloods) {
 		super();
 		this.name = name;
-		this.six = six;
+		this.sex = sex;
 		this.bloods = bloods;
 	}
 }

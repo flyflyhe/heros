@@ -1,14 +1,16 @@
 package cards;
 
 
+import com.google.gson.annotations.SerializedName;
+
 public class Card {
 	public static String[] colorMap = {"黑", "红", "梅", "方"};
-	
-	int color;
-	
-	int number;
-	
-	Skill skill;
+
+	public int color;
+
+	public int number;
+
+	public Skill skill;
 
 	public Card(int color, int number) {
 		super();
@@ -25,5 +27,13 @@ public class Card {
 	
 	public Skill getSkill() {
 		return this.skill;
+	}
+
+	public int getColor() {
+		return color;
+	}
+
+	public int getNumber() {
+		return number;
 	}
 }

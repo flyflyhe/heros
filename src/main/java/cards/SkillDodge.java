@@ -4,10 +4,10 @@ import character.Hero;
 
 public class SkillDodge extends Skill {
 	
-	String name = "闪";
-	
-	int id = 2;
+	public String name = "闪";
 
-	int[] answerIdList = {1};
+	public int id = 2;
+
+	public int[] answerIdList = {1};
 
 }

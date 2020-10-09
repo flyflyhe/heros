@@ -40,15 +40,8 @@ public class Manager {
 
 	public static final HashMap<Integer, Room> sidRoom = new HashMap<>();
 
-	public final Stack<Card>  cardStack = new Stack<Card>();
 
 	public Manager() {
-		ArrayList<CardConfig> cardConfigs = Manager.cardConfigs;
-		Collections.shuffle(cardConfigs);
-
-		for (CardConfig cardConfig : cardConfigs) {
-			cardStack.add(new Card(cardConfig.getColor(), cardConfig.getNumber(), cardConfig.getSkill()));
-		}
 
 		for (int i = 0; i < maxRoom; i++) {
 			roomArr[i] = new Room();

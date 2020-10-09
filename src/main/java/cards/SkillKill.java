@@ -3,12 +3,12 @@ package cards;
 
 public final class SkillKill extends Skill {
 
-	int id = 1;
+	public int id = 1;
 
-	int effect = 1;
-	
-	int[] answerIdList = {};
+	public int effect = 1;
 
-	String name = "杀";
+	public int[] answerIdList = {};
+
+	public String name = "杀";
 
 }

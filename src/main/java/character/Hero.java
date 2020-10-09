@@ -1,19 +1,20 @@
 package character;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import cards.Card;
 
 public abstract class Hero {
 	String name;
 	
-	String six;
+	String sex;
 	
 	int bloods = 0;
 	
-	ArrayList<Skill> skills = new ArrayList<Skill>();
+	private ArrayList<Skill> skills = new ArrayList<Skill>();
 	
-	ArrayList<Card> cards = new ArrayList<Card>();
+	private ArrayList<Card> cards = new ArrayList<Card>();
 	
 	public boolean isAlive() {
 		return this.bloods > 0;
@@ -36,12 +37,12 @@ public abstract class Hero {
 		this.skills.add(skill);
 	}
 	
-	public String getSix() {
-		return six;
+	public String getSex() {
+		return sex;
 	}
 
-	public void setSix(String six) {
-		this.six = six;
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 	
 	public int getBloods() {
@@ -57,12 +58,13 @@ public abstract class Hero {
 	}
 	
 	public void addCards(Card... cards) {
-		for (Card card : cards) {
-			this.cards.add(card);
-		}
+		this.cards.addAll(Arrays.asList(cards));
 	}
-	
-	
+
+	public ArrayList<Card> getCards() {
+		return cards;
+	}
+
 	public Card getCardRandom() {
 		int a =(int)(1+Math.random()*(this.cards.size()-1+1));
 		Card card =  this.cards.get(a);
