@@ -37,6 +37,9 @@ public class DefaultServer extends WebSocketServer {
 			System.out.println("没有房间了");
 		}else if (room.sidHeroMap.get(sid) == null) {
 			room.sidHeroMap.put(sid, new HeroDemo(id, "男", 4));
+			System.out.println("加入房间" + id);
+		} else {
+		 	System.out.println("重新进入房间" + id);
 		}
 	}
 

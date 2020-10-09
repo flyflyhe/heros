@@ -34,13 +34,13 @@ public class Manager {
 					new CardConfig(1, 11, new SkillRelease()), new CardConfig(1, 12, new SkillRelease()),
 					new CardConfig(1, 13, new SkillRelease())));
 
-	public static int maxRoom = 1;
+	public static final int maxRoom = 1;
 
-	public static Room[] roomArr = new Room[1];
+	public static final Room[] roomArr = new Room[1];
 
-	public static HashMap<Integer, Room> sidRoom = new HashMap<>();
+	public static final HashMap<Integer, Room> sidRoom = new HashMap<>();
 
-	public Stack<Card> cardStack = new Stack<Card>();
+	public final Stack<Card>  cardStack = new Stack<Card>();
 
 	public Manager() {
 		ArrayList<CardConfig> cardConfigs = Manager.cardConfigs;
@@ -62,9 +62,15 @@ public class Manager {
 			for (Room room : roomArr) {
 				if (room.status == 0) {
 					if (room.sidHeroMap.size() <= room.MaxUsers) {
-						synchronized (room) {
+						synchronized (roomArr) {
 							if (room.sidHeroMap.size() <= room.MaxUsers) {
 								room.sidHeroMap.put(id, null);
+								sidRoom.put(id, room);
+								room.selectSeat(id);
+							}
+
+							if (room.sidHeroMap.size() == room.MaxUsers) {
+								room.status = 1;
 							}
 						}
 					}
