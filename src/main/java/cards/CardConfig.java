@@ -26,5 +26,4 @@ public class CardConfig {
 		return skill;
 	}
 	
-	
 }

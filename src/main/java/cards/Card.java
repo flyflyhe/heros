@@ -9,6 +9,8 @@ public class Card {
 	public int number;
 
 	public Skill skill;
+	
+	public String id;
 
 	public Card(int color, int number) {
 		super();
@@ -33,5 +35,9 @@ public class Card {
 
 	public int getNumber() {
 		return number;
+	}
+	
+	public String getId() {
+		return String.valueOf(getNumber()) + "-" +String.valueOf(getColor());
 	}
 }

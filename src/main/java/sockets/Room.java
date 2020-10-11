@@ -3,8 +3,13 @@ package sockets;
 import boot.Manager;
 import cards.Card;
 import cards.CardConfig;
+import cards.Skill;
 import character.HeroDemo;
+import events.EventSendCard;
+
 import com.google.gson.Gson;
+
+import message.EventBean;
 import message.HeroBean;
 import org.java_websocket.WebSocket;
 
@@ -15,7 +20,8 @@ import character.Hero;
 
 public class Room {
 	public final Stack<Card> cardStack = new Stack<Card>();
-
+	
+	public Map<String, Skill> cardSkillMap = new HashMap<String, Skill>();
 	public int id;
 	
 	/**
@@ -49,6 +55,7 @@ public class Room {
 
 		for (CardConfig cardConfig : cardConfigs) {
 			Card card = new Card(cardConfig.getColor(), cardConfig.getNumber(), cardConfig.getSkill());
+			cardSkillMap.put(card.getId(), card.getSkill());
 			if (!cardStack.add(card)) {
 				System.out.println("入栈失败");
 			}
@@ -69,12 +76,15 @@ public class Room {
 							Card card = cardStack.pop();
 							hero.addCards(card);
 						}
-
+						
+					
 						HeroBean heroBean = HeroBean.getHeroBean(hero);
+						EventBean eventBean = new EventBean(EventSendCard.EventName, heroBean);
+						
 						System.out.println(cardStack.size());
-						String heroJson = gson.toJson(heroBean);
-						System.out.println("json:" + heroJson);
-						webSocket.send(heroJson);
+						String eventJson = gson.toJson(eventBean);
+						System.out.println("json:" + eventJson);
+						webSocket.send(eventJson);
 					});
 					sendCard = true;
 				}

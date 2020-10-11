@@ -9,33 +9,44 @@
 </head>
 <body>
     <div>
-        <input type="text" id="id">
-        <button id="open" data-id="id">open</button>
+        <input type="text" id="id1">
+        <button id="open1" data-id="id1">open</button>
         <button id="close">close</button>
+        <input type="text" id="m1">
+        <button id="send1" data-id="id1" data-n="1">send</button>
     </div>
     <div>
         <input type="text" id="id2">
         <button id="open2" data-id="id2">open</button>
         <button id="close2">close</button>
+        <input type="text" id="m2">
+        <button id="send2" data-id="id2" data-n="2">send</button>
     </div>
     <div>
         <input type="text" id="id3" >
         <button id="open3" data-id="id3">open</button>
         <button id="close3">close</button>
+        <input type="text" id="m3">
+        <button id="send3" data-id="id3" data-n="3">send</button>
     </div>
     <div>
         <input type="text" id="id4">
         <button id="open4" data-id="id4">open</button>
         <button id="close4">close</button>
+        <input type="text" id="m4">
+        <button id="send4" data-id="id4" data-n="4">send</button>
     </div>
 
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
 <script>
-    $("#open,#open2,#open3,#open4").on('click', function (e) {
+    let m = {};
 
-        let ws = new WebSocket("ws://127.0.0.1:8887?id="+$("#"+$(this).data('id')).val())
+    $("#open1,#open2,#open3,#open4").on('click', function (e) {
 
+        let id = $(this).data('id');
+        let ws = m[id] = new WebSocket("ws://127.0.0.1:8887?id="+$("#"+id).val())
+    
         console.log(ws)
 
         ws.onopen = function (event) {
@@ -49,6 +60,14 @@
         ws.onclose = function (event) {
             console.log('close', event)
         }
+    })
+
+    $("#send1,#send2,#send3,#send4").on('click', function (e) {
+        let id = $(this).data('id');
+        console.log(m[id])
+        let ws = m[id]
+        let v = $("#m"+$(this).data('n')).val()
+        ws.send('{"name":"playCard", "object":"'+ v +'"}');
     })
 </script>
 </html>

@@ -12,13 +12,18 @@ import org.java_websocket.extensions.permessage_deflate.PerMessageDeflateExtensi
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 
+import com.google.gson.Gson;
+
 import character.HeroDemo;
 import hero.App;
+import message.EventBean;
 
 public class DefaultServer extends WebSocketServer {
 	private static final Draft perMessageDeflateDraft = new Draft_6455(new PerMessageDeflateExtension());
 	private static final int PORT = 8887;
-
+	
+	Gson gson = new Gson();
+	
 	public DefaultServer() {
 		super(new InetSocketAddress(PORT), Collections.singletonList(perMessageDeflateDraft));
 	}
@@ -62,7 +67,9 @@ public class DefaultServer extends WebSocketServer {
 	@Override
 	public void onMessage(WebSocket conn, String message) {
 		// TODO Auto-generated method stub
-
+		System.out.println(message);
+		EventBean eventBean = gson.fromJson(message, EventBean.class);
+		System.out.println(eventBean.getName());
 	}
 
 	@Override
